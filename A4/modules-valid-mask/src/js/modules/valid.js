@@ -41,7 +41,7 @@ export function validaTelefone() {
 
 export function validaDataDeNascimento() {
     let data = document.querySelector('.dt_nasc').value
-    let dataok = document.querySelectorAll('.dt_nasc')
+    let dataok = document.querySelector('.dt_nasc')
 
     let dia = data.substring(0, 2);
     let mes = data.substring(3, 5)
@@ -49,8 +49,10 @@ export function validaDataDeNascimento() {
     let d = parseInt(dia)
     let m = parseInt(mes)
 
+    console.log(d > 31);
+    console.log(m > 12);
 
-    if (d < 31 & m > 12) {
+    if (d > 31 || m > 12) {
         dataok.classList.add('errorInput')
         dataok.value = ""
     }
